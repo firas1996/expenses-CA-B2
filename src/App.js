@@ -25,7 +25,7 @@ function App() {
       id: 4,
       title: "Bills",
       price: 999,
-      date: new Date(2024, 10, 18),
+      date: new Date(2024, 1, 18),
     },
   ];
   return (
