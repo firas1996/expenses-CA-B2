@@ -4,11 +4,16 @@ import ChartData from "./Chart/ChartData";
 import ExpensesFilter from "./ExpensesFilter";
 
 const Expenses = ({ expenses }) => {
+  let years = new Set(expenses.map((item) => item.date.getFullYear()).sort());
+  // console.log([...years]);
+  const filtredExpenses = expenses.filter((item) => {
+    return true;
+  });
   return (
     <div className="expenses">
-      <ExpensesFilter years={["2023", "2024", "2025"]} />
-      <ChartData expenses={expenses} />
-      {expenses.map((expense) => {
+      <ExpensesFilter years={[...years]} />
+      <ChartData expenses={filtredExpenses} />
+      {filtredExpenses.map((expense) => {
         return (
           <ExpenseItem
             date={expense.date}
