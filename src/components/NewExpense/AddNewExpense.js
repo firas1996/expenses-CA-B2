@@ -2,26 +2,47 @@ import { useState } from "react";
 import "./AddNewExpense.css";
 
 const AddNewExpense = () => {
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [date, setDate] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [price, setPrice] = useState("");
+  // const [date, setDate] = useState("");
+  const [stats, setStats] = useState({
+    title: "",
+    price: "",
+    date: "",
+  });
   const titleChanger = (e) => {
-    setTitle(e.target.value);
+    // setTitle(e.target.value);
+    setStats((prevState) => {
+      return { ...prevState, title: e.target.value };
+    });
   };
   const priceChanger = (e) => {
-    setPrice(e.target.value);
+    // setPrice(e.target.value);
+    setStats({ ...stats, price: e.target.value });
   };
   const dateChanger = (e) => {
-    setDate(e.target.value);
+    // setDate(e.target.value);
+    setStats({ ...stats, date: e.target.value });
+  };
+  const changeAll = (e) => {
+    setStats((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(price);
-    console.log(date);
-    setTitle("");
-    setPrice("");
-    setDate("");
+    // console.log(title);
+    // console.log(price);
+    // console.log(date);
+    // setTitle("");
+    // setPrice("");
+    // setDate("");
+    console.log(stats);
+    setStats({
+      title: "",
+      price: "",
+      date: "",
+    });
   };
   return (
     <div className="new-expense">
@@ -32,8 +53,9 @@ const AddNewExpense = () => {
             <input
               required
               placeholder="Title"
-              onChange={titleChanger}
-              value={title}
+              onChange={changeAll}
+              value={stats.title}
+              name="title"
             />
           </div>
           <div className="new-expense__control">
@@ -43,8 +65,9 @@ const AddNewExpense = () => {
               placeholder="Price"
               type="number"
               min="0"
-              value={price}
-              onChange={priceChanger}
+              value={stats.price}
+              onChange={changeAll}
+              name="price"
             />
           </div>
           <div className="new-expense__control">
@@ -54,8 +77,9 @@ const AddNewExpense = () => {
               type="date"
               min="2022-01-01"
               max="2026-12-31"
-              value={date}
-              onChange={dateChanger}
+              value={stats.date}
+              onChange={changeAll}
+              name="date"
             />
           </div>
         </div>
