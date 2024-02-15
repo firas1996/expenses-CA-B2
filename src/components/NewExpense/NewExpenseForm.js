@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const NewExpenseForm = ({ toggle }) => {
+let id = 5;
+const NewExpenseForm = ({ toggle, newXp }) => {
   // const [title, setTitle] = useState("");
   // const [price, setPrice] = useState("");
   // const [date, setDate] = useState("");
@@ -37,6 +37,13 @@ const NewExpenseForm = ({ toggle }) => {
     // setPrice("");
     // setDate("");
     console.log(stats);
+    newXp({
+      id: id,
+      title: stats.title,
+      price: +stats.price,
+      date: new Date(stats.date),
+    });
+    id++;
     setStats({
       title: "",
       price: "",

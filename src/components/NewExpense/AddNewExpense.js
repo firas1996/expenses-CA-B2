@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AddNewExpense.css";
 import NewExpenseForm from "./NewExpenseForm";
 
-const AddNewExpense = () => {
+const AddNewExpense = ({ newXp }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -11,7 +11,7 @@ const AddNewExpense = () => {
   return (
     <div className="new-expense">
       {isOpen ? (
-        <NewExpenseForm toggle={toggle} />
+        <NewExpenseForm newXp={newXp} toggle={toggle} />
       ) : (
         <button onClick={toggle}>Add New Expense</button>
       )}
