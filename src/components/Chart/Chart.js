@@ -9,6 +9,7 @@ const Chart = ({ data }) => {
   console.log(values);
   const max = Math.max(...values);
   const total = values.reduce((x, y) => x + y);
+  console.log(total);
 
   return (
     <div className="chart">

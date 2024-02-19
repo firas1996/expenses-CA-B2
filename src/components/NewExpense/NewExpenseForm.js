@@ -70,6 +70,7 @@ const NewExpenseForm = ({ toggle, newXp }) => {
             placeholder="Price"
             type="number"
             min="0"
+            step="0.01"
             value={stats.price}
             onChange={changeAll}
             name="price"

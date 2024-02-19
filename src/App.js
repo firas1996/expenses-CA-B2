@@ -25,7 +25,7 @@ const oldExpenses = [
   {
     id: 4,
     title: "Bills",
-    price: 999,
+    price: 999.9,
     date: new Date(2024, 1, 18),
   },
 ];
